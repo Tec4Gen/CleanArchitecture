@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>38c6e29c-84ea-4c6a-97e8-637a3310eb81</UserSecretsId>
+		<IsPublishable>True</IsPublishable>
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="appsettings.json" />
+		<Content Remove="appsettings.*.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="appsettings.$(ASPNETCORE_ENVIRONMENT).json" DependentUpon="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
+	<ItemGroup>
+         <_WebToolingArtifacts Remove="Properties\launchSettings.json" />
+    </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML.Extensions.WebApi" Version="0.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rgs.Dms.Api.Infrastructure\Rgs.Dms.Api.Infrastructure.csproj" />
+    <ProjectReference Include="..\Rgs.Dms.Api.ViewModel\Rgs.Dms.Api.ViewModel.csproj" />
+    <ProjectReference Include="..\Rgs.Dms.Domain.ExcelGenerator\Rgs.Dms.Domain.ExcelGenerator.csproj" />
+    <ProjectReference Include="..\Rgs.Dms.Domain.PassbookGenerator\Rgs.Dms.Domain.PassbookGenerator.csproj" />
+    <ProjectReference Include="..\Rgs.Dms.Domain\Rgs.Dms.Domain.csproj" />
+    <ProjectReference Include="..\Rgs.Dms.Integration.EmailSender\Rgs.Dms.Integration.EmailSender.csproj" />
+    <ProjectReference Include="..\Rgs.Dms.Integration.MailTools\Rgs.Dms.Integration.MailTools.csproj" />
+  </ItemGroup>
+</Project>

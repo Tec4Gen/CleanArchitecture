@@ -1,0 +1,1 @@
+dotnet publish %~dp0..\src\Rgs.Dms\Rgs.Dms.sln -c Release /p:ASPNETCORE_ENVIRONMENT=Production /p:EnvironmentName=Production -o %~dp0..\dist\api
